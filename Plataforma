@@ -1,0 +1,44 @@
+from tkinter import *
+import time
+
+master = Tk()
+master.title("Tela Login")
+master.geometry("490x560+610+153")
+master.iconbitmap(default="icones\\ico.ico")
+master.resizable(width=1, height=1)
+
+
+# Funções
+def nova_janela():
+    master.destroy()
+    time.sleep(0.3)
+
+    master1 = Tk()
+    master1.title("Menu")
+    master1.geometry("490x560+400+153")
+
+
+# Variáveis globais
+esconda_senha = StringVar()
+
+# Importar imagens
+img_fundo = PhotoImage(file="imagens\\fundo.png")
+img_botao = PhotoImage(file="imagens\\bt-img.png")
+
+# Criacão de labels
+lab_fundo = Label(master, image=img_fundo)
+lab_fundo.pack()
+
+# Criação de caixas de entrada
+en_usuario = Entry(master, bd=2, font=("Calibri", 15), justify=CENTER)
+en_usuario.place(width=420, height=44, x=35, y=157)
+
+en_senha = Entry(master, textvariable=esconda_senha, show="*", bd=2, font=("Calibri", 15), justify=CENTER)
+en_senha.place(width=425, height=44, x=35, y=275)
+
+
+# Criação de botões
+bt_acessar = Button(master, bd=0, image=img_botao, command=nova_janela)
+bt_acessar.place(width=175, height=73, x=275, y=455)
+
+master.mainloop()
